@@ -1,9 +1,14 @@
 export interface Video {
   id: number;
   title: string;
-  description: string;
-  url: string;
+  thumbnail: string;
   thumbnailUrl: string;
+  duration: number;
+  category: string;
+  videoUrl: string;
+  mediaUrl: string;
+  mediaType: string;
+  slug: string;
 }
 
 export type PlayerMode = 'fullscreen' | 'mini';
