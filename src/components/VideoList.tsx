@@ -15,14 +15,17 @@ export default function VideoList({
   isRevealed,
   onVideoSelect,
 }: Props) {
-  const relatedVideos = categoryData.flatMap((cat) =>
-    cat.contents
+
+  const currentCategory = categoryData.find((cat) =>
+    cat.contents.some((v) => v.slug === currentVideo.slug),
+  );
+
+  const relatedVideos = currentCategory?.contents
       .filter((v) => v.slug !== currentVideo.slug)
       .map((v) => ({
         video: v,
-        category: cat.category,
-      })),
-  );
+        category: currentCategory.category,
+      })) || [];
 
   return (
     <div className={`video-list ${isRevealed ? "revealed" : ""}`}>
