@@ -2,6 +2,8 @@
 
 A mobile-first video player application built with React, TypeScript, and Vite. Features a YouTube-like interface with smooth video playback, custom controls, and gesture-based interactions.
 
+https://github.com/user-attachments/assets/ede68190-261e-4688-8205-5732a2ad279f
+
 ## Features
 
 - **Home Page - Video Feed**: Scrollable list of videos grouped by category
