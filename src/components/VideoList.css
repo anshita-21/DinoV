@@ -58,13 +58,15 @@
 /* Tablets – 2 videos per row */
 @media (min-width: 600px) and (max-width: 899px) {
   .video-list-content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* Mobile – 1 video per row */
 @media (max-width: 599px) {
   .video-list-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding:12px
   }
 }
