@@ -1,0 +1,53 @@
+.category-section {
+  margin-bottom: 32px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.category-header-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.category-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.category-videos {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 0 16px 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.category-videos::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .category-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    overflow: visible;
+  }
+
+  .category-header {
+    padding: 0 20px;
+  }
+}

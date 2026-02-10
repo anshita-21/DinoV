@@ -1,34 +1,54 @@
-import { useState } from 'react'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { Video, CategoryData } from './types/video';
+import { videoData } from './data/videos';
+import CategorySection from './components/CategorySection';
+import VideoPlayer from './components/VideoPlayer';
+import './styles/index.css';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+
+  const handleVideoClick = (video: Video) => {
+    setSelectedVideo(video);
+  };
+
+  const handleClosePlayer = () => {
+    setSelectedVideo(null);
+  };
+
+  const handleVideoSelect = (video: Video) => {
+    setSelectedVideo(video);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          {/* <img src={reactLogo} className="logo react" alt="React logo" /> */}
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      {selectedVideo ? (
+        <VideoPlayer
+          video={selectedVideo}
+          categoryData={videoData}
+          onClose={handleClosePlayer}
+          onVideoSelect={handleVideoSelect}
+        />
+      ) : (
+        <div className="home-page">
+          <header className="app-header">
+            <h1>Video Feed</h1>
+          </header>
+          <main className="main-content">
+            {videoData.map((categoryData: CategoryData) => (
+              <CategorySection
+                key={categoryData.category.slug}
+                categoryData={categoryData}
+                onVideoClick={handleVideoClick}
+              />
+            ))}
+          </main>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
+

@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# Dino Video Player Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first video player application built with React, TypeScript, and Vite. Features a YouTube-like interface with smooth video playback, custom controls, and gesture-based interactions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home Page - Video Feed**: Scrollable list of videos grouped by category
+- **Full-Page Video Player**: Auto-playing video player with custom controls
+- **Custom Video Controls**: Play/pause, skip forward/backward (+10/-10 seconds), seekable progress bar, and time display
+- **In-Player Video List**: Swipe up or scroll down to reveal related videos from the same category
+- **Responsive Design**: Mobile-first design that works seamlessly on both mobile and desktop
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (v20 or higher)
+- npm or yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Install dependencies:
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Start the development server:
+```bash
+npm run dev
 ```
+
+3. Open your browser and navigate to the URL shown in the terminal (usually `http://localhost:5173`)
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── VideoCard.tsx    # Video card for home feed
+│   ├── VideoPlayer.tsx  # Full-page video player
+│   ├── VideoControls.tsx # Custom video controls
+│   ├── VideoList.tsx    # In-player video list
+│   └── CategorySection.tsx # Category grouping
+├── types/               # TypeScript interfaces
+├── data/                # Video dataset
+├── hooks/               # Custom React hooks
+├── styles/              # Global styles
+└── App.tsx              # Main app component
+```
+
+## Technologies Used
+
+- React 18
+- TypeScript
+- Vite
+- YouTube IFrame API
+- Plain CSS (mobile-first, responsive)
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## License
+
+This project is created for the Dino Ventures Frontend Engineer Assignment.
+
